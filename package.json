@@ -1,0 +1,33 @@
+{
+  "name": "small-form-react",
+  "version": "1.0.0",
+  "description": "A small form built with ReactJS to ask questions and display answers.",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mleray/SmallFormReact.git"
+  },
+  "keywords": [
+    "reactjs",
+    "form",
+    "questions",
+    "answers"
+  ],
+  "author": "Maud Leray",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mleray/SmallFormReact/issues"
+  },
+  "homepage": "https://github.com/mleray/SmallFormReact#readme",
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.1.0"
+  }
+}
