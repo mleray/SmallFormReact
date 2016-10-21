@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from "react";
 import { findDOMNode } from "react-dom";
+import cn from "classnames";
 
 class TextInput extends Component {
 
@@ -12,7 +13,8 @@ class TextInput extends Component {
 		const {
 			name: _name,
 			type,
-			placeholder
+			placeholder,
+			className
 		} = this.props;
 
 		return (
@@ -21,6 +23,7 @@ class TextInput extends Component {
 				type={type}
 				name={_name}
 				placeholder={placeholder}
+				className={cn(className, "input")}
 			/>
 		);
 	}
@@ -29,7 +32,8 @@ class TextInput extends Component {
 TextInput.propTypes = {
 	type: PropTypes.string,
 	name: PropTypes.string,
-	placeholder: PropTypes.string
+	placeholder: PropTypes.string,
+	className: PropTypes.string
 };
 
 TextInput.defaultProps = {

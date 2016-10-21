@@ -1,7 +1,6 @@
 const gulp = require("gulp");
 const less = require("gulp-less");
 const browserSync = require("browser-sync").create();
-const react = require("gulp-react");
 const browserify = require("browserify");
 const babelify = require("babelify");
 const source = require("vinyl-source-stream");
@@ -15,12 +14,12 @@ gulp.task("browserSync", function() {
 
 // task to build CSS from LESS
 gulp.task("css", function() {
-  return gulp.src("src/less/*.less")
+  return gulp.src("src/less/styles.less")
     .pipe(less())
     .pipe(gulp.dest("src/css"))
     .pipe(browserSync.reload({
       stream: true
-    }))
+    }));
 });
 
 // task to build JS file from JSX
@@ -32,12 +31,12 @@ gulp.task("build", function () {
         .pipe(gulp.dest("src/js/dist"))
         .pipe(browserSync.reload({
           stream: true
-        }))
+        }));
 });
 
 // task to watch changes and reload accordingly
 gulp.task("watch", ["browserSync", "build", "css"], function () {
-    gulp.watch("src/jsx/*.jsx", ["build"]);
+    gulp.watch(["src/jsx/*.jsx", "src/jsx/ui/*.jsx", "src/jsx/components/*.jsx"], ["build"]);
     gulp.watch("src/less/*.less", ["css"]);
     gulp.watch("src/*.html", browserSync.reload); 
 });

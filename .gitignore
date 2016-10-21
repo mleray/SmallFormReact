@@ -29,3 +29,4 @@ chrome-user-data
 *.iml
 .vscode
 .eslintrc
+.jshintrc
