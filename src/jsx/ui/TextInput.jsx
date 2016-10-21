@@ -4,7 +4,7 @@ import cn from "classnames";
 
 class TextInput extends Component {
 
-	get value() {
+	getValue() {
 		if (!this._input) return "";
 		return findDOMNode(this._input).value;
 	}
@@ -23,7 +23,7 @@ class TextInput extends Component {
 				type={type}
 				name={_name}
 				placeholder={placeholder}
-				className={cn(className, "input")}
+				className={cn(className, "textInput")}
 			/>
 		);
 	}
@@ -33,7 +33,8 @@ TextInput.propTypes = {
 	type: PropTypes.string,
 	name: PropTypes.string,
 	placeholder: PropTypes.string,
-	className: PropTypes.string
+	className: PropTypes.string,
+	disabled: PropTypes.bool
 };
 
 TextInput.defaultProps = {

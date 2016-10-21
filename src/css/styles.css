@@ -6,23 +6,27 @@
   display: -ms-flexbox;
   display: -ms-flex;
   display: flex;
+  text-align: left;
 }
 .panels .panel {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  margin: 0 20px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 0 20px;
 }
 .panels .with-border {
   border-left: solid grey thin;
   border-right: solid grey thin;
 }
-.input {
-  width: 90%;
-  padding: 5px;
-}
 .question {
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 .answer {
   display: -webkit-flex;
@@ -37,4 +41,26 @@
   justify-content: space-between;
   width: 90%;
   margin-bottom: 10px;
+}
+.sendButton {
+  -webkit-align-self: center;
+  -ms-align-self: center;
+  align-self: center;
+  margin-top: 10px;
+  width: 50%;
+  padding: 5px 0;
+}
+.textInput {
+  width: 90%;
+  padding: 5px;
+}
+.radio {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  padding: 5px;
+}
+.radio input {
+  outline: none;
 }

@@ -4,7 +4,6 @@ import Answer from "./Answer";
 
 const Questions = () => (
 	<div className="panel">
-		<h3>Questions</h3>
 		<TextInput 
 			placeholder="Please write your question here"
 			name="questionInput"
