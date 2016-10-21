@@ -1,8 +1,8 @@
-import HelloWorld from "./HelloWorld";
+import TextInput from "./TextInput";
 import React from "react";
 import ReactDOM from "react-dom";
 
 ReactDOM.render(
-    <HelloWorld phrase="ES6"/>,
+    <TextInput />,
     document.querySelector(".root")
 );
