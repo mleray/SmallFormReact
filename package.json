@@ -4,7 +4,7 @@
   "description": "A small form built with ReactJS to ask questions and display answers.",
   "main": "app/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -33,9 +33,12 @@
     "browser-sync": "^2.17.5",
     "browserify": "^13.1.0",
     "classnames": "^2.2.5",
+    "events": "^1.1.1",
+    "fbjs": "^0.8.5",
     "flux": "^3.1.0",
     "gulp": "^3.9.1",
     "gulp-less": "^3.1.0",
+    "object-assign": "^4.1.0",
     "vinyl-source-stream": "^1.1.0"
   }
 }

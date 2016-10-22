@@ -12,7 +12,6 @@ class TextInput extends Component {
 	render() {
 		const {
 			name: _name,
-			type,
 			placeholder,
 			className
 		} = this.props;
@@ -20,7 +19,7 @@ class TextInput extends Component {
 		return (
 			<input
 				ref={elem => { this._input = elem; }}
-				type={type}
+				type="text"
 				name={_name}
 				placeholder={placeholder}
 				className={cn(className, "textInput")}
@@ -30,7 +29,6 @@ class TextInput extends Component {
 }
 
 TextInput.propTypes = {
-	type: PropTypes.string,
 	name: PropTypes.string,
 	placeholder: PropTypes.string,
 	className: PropTypes.string,
@@ -38,8 +36,7 @@ TextInput.propTypes = {
 };
 
 TextInput.defaultProps = {
-	type: "text",
 	name: "textInput"
 };
 
-export default TextInput;
+module.exports =TextInput;

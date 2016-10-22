@@ -17,4 +17,4 @@ Answer.propTypes = {
 	number: PropTypes.number
 };
 
-export default Answer;
+module.exports = Answer;

@@ -32,4 +32,4 @@ Radio.defaultProps = {
     checked: false
 };
 
-export default Radio;
+module.exports = Radio;

@@ -1,9 +1,10 @@
 import React from "react";
 import Radio from "../ui/Radio";
+import QuestionStore from "../stores/QuestionStore";
 
 const Answers = () => (
 	<div className="panel with-border">
-		<h4>This is the question</h4>
+		<h4>{QuestionStore.getQuestion()}</h4>
 		<Radio
 			name="answer1"
 			value={1}
@@ -24,4 +25,4 @@ const Answers = () => (
 	</div>
 );
 
-export default Answers;
+module.exports = Answers;

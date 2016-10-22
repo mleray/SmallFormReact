@@ -24,7 +24,7 @@ gulp.task("css", function() {
 
 // task to build JS file from JSX
 gulp.task("build", function () {
-    return browserify({ entries: "src/jsx/App.jsx", extensions: [".jsx"], debug: true })
+    return browserify({ entries: "src/js/App.jsx", extensions: [".jsx"], debug: true })
         .transform("babelify", { presets: ["es2015", "react"] })
         .bundle()
         .pipe(source("bundle.js"))
@@ -36,7 +36,7 @@ gulp.task("build", function () {
 
 // task to watch changes and reload accordingly
 gulp.task("watch", ["browserSync", "build", "css"], function () {
-    gulp.watch(["src/jsx/*.jsx", "src/jsx/ui/*.jsx", "src/jsx/components/*.jsx"], ["build"]);
+    gulp.watch(["src/js/**/*.js", "src/js/**/*.jsx"], ["build"]);
     gulp.watch("src/less/*.less", ["css"]);
     gulp.watch("src/*.html", browserSync.reload); 
 });
