@@ -28,7 +28,7 @@ gulp.task("build", function () {
         .transform("babelify", { presets: ["es2015", "react"] })
         .bundle()
         .pipe(source("bundle.js"))
-        .pipe(gulp.dest("src/js/dist"))
+        .pipe(gulp.dest("src/dist"))
         .pipe(browserSync.reload({
           stream: true
         }));

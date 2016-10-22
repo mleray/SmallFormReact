@@ -1,9 +1,6 @@
-import React from "react";
+import React, { Component, PropTypes } from "react";
 import Radio from "../ui/Radio";
-import QuestionStore from "../stores/QuestionStore";
-import AnswersStore from "../stores/AnswersStore";
-
-const currentAnswers = AnswersStore.getAnswers();
+import Store from "../stores/Store";
 
 const displayAnswers = answers => answers.map((answer, i) => {
 	return (
@@ -17,12 +14,25 @@ const displayAnswers = answers => answers.map((answer, i) => {
 	);
 });
 
-const Answers = () => (
-	<div className="panel with-border">
-		<h4>{QuestionStore.getQuestion()}</h4>
-		{displayAnswers(currentAnswers)}
-		<button className="sendButton">Send</button>
-	</div>
-);
+class Answers extends Component {
+
+	render() {
+		const { question, answers } = this.props;
+		return (
+			<div className="panel with-border">
+				<h4>{question ? question : "No question for now"}</h4>
+				{displayAnswers(answers)}
+				<button className="sendButton">Send</button>
+			</div>
+		);
+	}
+};
+
+Answers.propTypes = {
+	question: PropTypes.string,
+	answers: PropTypes.arrayOf(PropTypes.shape({
+		text: PropTypes.string
+	}))
+};
 
 module.exports = Answers;

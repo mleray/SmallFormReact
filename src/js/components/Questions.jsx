@@ -1,34 +1,51 @@
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
+import { findDOMNode } from "react-dom";
 import TextInput from "../ui/TextInput";
 import Answer from "./Answer";
-import AnswersStore from "../stores/AnswersStore";
-import QuestionStore from "../stores/QuestionStore";
+import Store from "../stores/Store";
 
-const currentAnswers = AnswersStore.getAnswers();
-const currentQuestion = QuestionStore.getQuestion();
+class Questions extends Component {
 
-const displayAnswers = answers => answers.map((answer, i) => {
-	return (
-		<Answer 
-			key={i}
-			name={`answer${i}Input`}
-			value={answers[i].text}
-			number={i+1}
-			placeholder={`Answer ${i+1}`}
-		/>
-	);
-});
+	onChangeQuestion(event) {
+		Store.updateQuestion(event.target.value);
+		this.props.onChange();
+	}
 
-const Questions = () => (
-	<div className="panel">
-		<TextInput 
-			value={currentQuestion}
-			placeholder="Please write your question here"
-			name="questionInput"
-			className="question"
-		/>
-		{displayAnswers(currentAnswers)}
-	</div>
-);
+	render() {
+
+		const { question, answers, onChange } = this.props;
+		return (
+			<div className="panel">
+				<TextInput 
+					value={question}
+					placeholder="Please write your question here"
+					className="question"
+					name="questionInput"
+					onChange={this.onChangeQuestion.bind(this)}
+				/>
+				{
+					answers.map((answer, i) => {
+						return (
+							<Answer 
+								key={i}
+								value={answers[i].text}
+								id={i}
+								onChange={onChange}
+							/>
+						);
+					})
+				}
+			</div>
+		);
+	}
+};
+
+Questions.propTypes = {
+	question: PropTypes.string,
+	answers: PropTypes.arrayOf(PropTypes.shape({
+		text: PropTypes.string
+	})),
+	onChange: PropTypes.func.isRequired
+};
 
 module.exports = Questions;
