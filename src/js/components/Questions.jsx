@@ -1,43 +1,34 @@
 import React, { Component } from "react";
 import TextInput from "../ui/TextInput";
 import Answer from "./Answer";
+import AnswersStore from "../stores/AnswersStore";
+import QuestionStore from "../stores/QuestionStore";
 
-class Questions extends Component {
+const currentAnswers = AnswersStore.getAnswers();
+const currentQuestion = QuestionStore.getQuestion();
 
-	// Set initial state
-	constructor() {
-	   	super();
-	   	this.state = {
-	   		question: ""
-	   	};
-	}
+const displayAnswers = answers => answers.map((answer, i) => {
+	return (
+		<Answer 
+			key={i}
+			name={`answer${i}Input`}
+			value={answers[i].text}
+			number={i+1}
+			placeholder={`Answer ${i+1}`}
+		/>
+	);
+});
 
-	render() { 
-		return (
-			<div className="panel">
-				<TextInput 
-					placeholder="Please write your question here"
-					name="questionInput"
-					className="question"
-				/>
-				<Answer 
-					number={1}
-					placeholder="Answer 1"
-					name="answer1Input"
-				/>
-				<Answer 
-					number={2}
-					placeholder="Answer 2"
-					name="answer2Input"
-				/>
-				<Answer 
-					number={3}
-					placeholder="Answer 3"
-					name="answer3Input"
-				/>
-			</div>
-		);
-	}
-}
+const Questions = () => (
+	<div className="panel">
+		<TextInput 
+			value={currentQuestion}
+			placeholder="Please write your question here"
+			name="questionInput"
+			className="question"
+		/>
+		{displayAnswers(currentAnswers)}
+	</div>
+);
 
 module.exports = Questions;

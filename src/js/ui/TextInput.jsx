@@ -2,37 +2,21 @@ import React, { PropTypes, Component } from "react";
 import { findDOMNode } from "react-dom";
 import cn from "classnames";
 
-class TextInput extends Component {
-
-	getValue() {
-		if (!this._input) return "";
-		return findDOMNode(this._input).value;
-	}
-
-	render() {
-		const {
-			name: _name,
-			placeholder,
-			className
-		} = this.props;
-
-		return (
-			<input
-				ref={elem => { this._input = elem; }}
-				type="text"
-				name={_name}
-				placeholder={placeholder}
-				className={cn(className, "textInput")}
-			/>
-		);
-	}
-}
+const TextInput = ({ name: _name, placeholder, className, value }) => ( 
+	<input
+		type="text"
+		name={_name}
+		placeholder={placeholder}
+		className={cn(className, "textInput")}
+		value={value}
+	/>
+);
 
 TextInput.propTypes = {
 	name: PropTypes.string,
 	placeholder: PropTypes.string,
 	className: PropTypes.string,
-	disabled: PropTypes.bool
+	value: PropTypes.string
 };
 
 TextInput.defaultProps = {
