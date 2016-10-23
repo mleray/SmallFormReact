@@ -59,6 +59,9 @@
   width: 50%;
   padding: 5px 0;
 }
+.chart {
+  height: 100%;
+}
 .textInput {
   width: 90%;
   padding: 5px;

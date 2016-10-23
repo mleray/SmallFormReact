@@ -11,7 +11,7 @@ const assign = require("object-assign");
 let _state = {
 	question: "",
 	answers: [ "", "", ""],
-	results: [0, 0, 0]
+	results: [1, 2, 3]
 };
 
 const Store = assign({}, EventEmitter.prototype, {
