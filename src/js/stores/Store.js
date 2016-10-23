@@ -33,9 +33,10 @@ const Store = assign({}, EventEmitter.prototype, {
 	    return _state.question;
 	},
 
-	// Updates the question
+	// Updates the question and resets the results
 	updateQuestion(question) {
 	    _state.question = question;
+	    _state.results = [0, 0, 0];
 	},
 
 	// Returns the current answers
@@ -43,9 +44,10 @@ const Store = assign({}, EventEmitter.prototype, {
 	    return _state.answers;
 	},
 
-	// Updates one answer by id and text
+	// Updates one answer by id and text and resets the results
 	updateAnswer(id, text) {
 	    _state.answers[id] = text;
+	    _state.results = [0, 0, 0];
 	},
 
 	// Updates results when sending an answer
