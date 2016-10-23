@@ -3,9 +3,9 @@ import React, { PropTypes } from "react";
 const Radio = ({
     name: _name,
     value,
-    checked,
     label,
-    className
+    className,
+    disabled
 }) => {
     return (
         <div className="radio">
@@ -13,7 +13,7 @@ const Radio = ({
                 name={_name}
                 value={value}
                 type="radio"
-                checked={checked}
+                disabled={disabled}
             />
             <span>{label}</span>
         </div>
@@ -23,13 +23,13 @@ const Radio = ({
 Radio.propTypes = {
     className: PropTypes.string,
     label: PropTypes.string,
-    checked: PropTypes.bool,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-    name: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired,
+    disabled: PropTypes.bool
 };
 
 Radio.defaultProps = {
-    checked: false
+    disabled: false
 };
 
 module.exports = Radio;

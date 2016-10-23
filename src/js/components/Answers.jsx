@@ -1,28 +1,52 @@
 import React, { Component, PropTypes } from "react";
 import Radio from "../ui/Radio";
-import Store from "../stores/Store";
-
-const displayAnswers = answers => answers.map((answer, i) => {
-	return (
-		<Radio
-			key={i}
-			name={`answer${i}`}
-			value={i}
-			label={answers[i].text}
-			checked={answers[i].checked}
-		/>
-	);
-});
+import Actions from "../actions/Actions";
 
 class Answers extends Component {
+
+	onSendAnswer(e) {
+		const radios = document.getElementsByName("answers");
+		let selected;
+
+		for (let i = 0; i < radios.length; i++) {
+		    if (radios[i].checked) {
+		        selected = radios[i].value;
+		        break;
+		    }
+		}
+
+		if (!selected) console.debug("No answer selected!");
+
+		Actions.sendAnswer(selected);
+		this.props.onChange();
+		e.preventDefault(); // Prevents page from reloading on submit
+	}
 
 	render() {
 		const { question, answers } = this.props;
 		return (
 			<div className="panel with-border">
 				<h4>{question ? question : "No question for now"}</h4>
-				{displayAnswers(answers)}
-				<button className="sendButton">Send</button>
+				<form className="form">
+					{answers.map((answer, i) => {
+						return (
+							<Radio
+								key={i}
+								name="answers"
+								value={i}
+								label={answers[i]}
+								disabled={!question || !answers[i]}
+							/>
+						);
+					})}
+					<button 
+						type="submit" 
+						className="sendButton" 
+						onClick={this.onSendAnswer.bind(this)}
+					>
+						Send
+					</button>
+				</form>
 			</div>
 		);
 	}
@@ -30,9 +54,8 @@ class Answers extends Component {
 
 Answers.propTypes = {
 	question: PropTypes.string,
-	answers: PropTypes.arrayOf(PropTypes.shape({
-		text: PropTypes.string
-	}))
+	answers: PropTypes.arrayOf(PropTypes.string),
+	results: PropTypes.arrayOf(PropTypes.number)
 };
 
 module.exports = Answers;

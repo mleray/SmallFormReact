@@ -8,7 +8,8 @@ import Store from "./stores/Store";
 const getState = () => (
   	{
     	question: Store.getQuestion(),
-    	answers: Store.getAnswers()
+    	answers: Store.getAnswers(),
+    	results: Store.getResults()
   	}
 );
 
@@ -33,20 +34,24 @@ class App extends Component {
   	}
 
 	render() {
+
+		const { question, answers, results } = this.state;
+
 		return (
 			<div>
 				<h1>Upinion coding challenge</h1>
 				<div className="panels">
 					<Questions 
 						onChange={this._onChange}
-						question={this.state.question}
-						answers={this.state.answers}
+						question={question}
+						answers={answers}
 					/>
 					<Answers 
-						question={this.state.question}
-						answers={this.state.answers}
+						question={question}
+						answers={answers}
+						onChange={this._onChange}
 					/>
-					<Results />
+					<Results results={results}/>
 				</div>
 			</div>
 		);

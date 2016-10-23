@@ -1,11 +1,11 @@
 import React, { PropTypes, Component } from "react";
 import TextInput from "../ui/TextInput";
-import Store from "../stores/Store";
+import Actions from "../actions/Actions";
 
 class Answer extends Component { 
 
 	onChangeAnswer(event) {
-		Store.updateAnswer(this.props.id, event.target.value);
+		Actions.updateAnswer(this.props.id, event.target.value);
 		this.props.onChange();
 	}
 

@@ -6,21 +6,21 @@ module.exports = {
 	// Functions for the question
   	updateQuestion(question) {
 	    AppDispatcher.dispatch({
-	      	type: QuestionConstants.UPDATE_QUESTION,
+	      	type: Constants.UPDATE_QUESTION,
 	      	question
 	    });
   	},
 
   	getQuestion() {
 	    AppDispatcher.dispatch({
-	      	type: QuestionConstants.GET_QUESTION
+	      	type: Constants.GET_QUESTION
 	    });
   	},
 
   	// Functions for the answers
   	updateAnswer(id, text) {
 	    AppDispatcher.dispatch({
-	      	type: AnswersConstants.UPDATE_ANSWER,
+	      	type: Constants.UPDATE_ANSWER,
 	      	id,
 	      	text
 	    });
@@ -28,7 +28,21 @@ module.exports = {
 
   	getAnswers() {
 	    AppDispatcher.dispatch({
-	      	type: AnswersConstants.GET_ANSWERS
+	      	type: Constants.GET_ANSWERS
 	    });
-  	}
+  	},
+
+  	// Functions for the results
+  	getResults() {
+	    AppDispatcher.dispatch({
+	      	type: Constants.GET_RESULTS
+	    });
+  	},
+
+  	sendAnswer(id) {
+	    AppDispatcher.dispatch({
+	      	type: Constants.SEND_ANSWER,
+	      	id
+	    });
+  	},
 };

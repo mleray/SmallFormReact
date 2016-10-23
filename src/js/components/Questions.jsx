@@ -2,12 +2,12 @@ import React, { Component, PropTypes } from "react";
 import { findDOMNode } from "react-dom";
 import TextInput from "../ui/TextInput";
 import Answer from "./Answer";
-import Store from "../stores/Store";
+import Actions from "../actions/Actions";
 
 class Questions extends Component {
 
 	onChangeQuestion(event) {
-		Store.updateQuestion(event.target.value);
+		Actions.updateQuestion(event.target.value);
 		this.props.onChange();
 	}
 
@@ -42,9 +42,7 @@ class Questions extends Component {
 
 Questions.propTypes = {
 	question: PropTypes.string,
-	answers: PropTypes.arrayOf(PropTypes.shape({
-		text: PropTypes.string
-	})),
+	answers: PropTypes.arrayOf(PropTypes.string),
 	onChange: PropTypes.func.isRequired
 };
 

@@ -1,9 +1,20 @@
-import React from "react";
+import React, { Component, PropTypes } from "react";
 
-const Results = () => (
-	<div className="panel">
-		<h3>Results</h3>
-	</div>
-);
+class Results extends Component {
+
+	render() {
+		const { results } = this.props;
+		return (
+			<div className="panel">
+				<h3>Results</h3>
+				<p>{results}</p>
+			</div>
+		);
+	}
+};
+
+Results.propTypes = {
+	results: PropTypes.arrayOf(PropTypes.number)
+};
 
 module.exports = Results;

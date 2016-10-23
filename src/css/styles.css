@@ -42,7 +42,16 @@
   width: 90%;
   margin-bottom: 10px;
 }
-.sendButton {
+.form {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.form .sendButton {
   -webkit-align-self: center;
   -ms-align-self: center;
   align-self: center;
@@ -55,10 +64,6 @@
   padding: 5px;
 }
 .radio {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: -ms-flex;
-  display: flex;
   padding: 5px;
 }
 .radio input {
