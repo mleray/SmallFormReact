@@ -5,19 +5,11 @@ import Answers from "./components/Answers";
 import Results from "./components/Results";
 import Store from "./stores/Store";
 
-const getState = () => (
-  	{
-    	question: Store.getQuestion(),
-    	answers: Store.getAnswers(),
-    	results: Store.getResults()
-  	}
-);
-
 class App extends Component {
 
 	constructor() {
 		super();
-    	this.state = getState();
+    	this.state = Store.getState();
     	this._onChange = this._onChange.bind(this);
   	}
 
@@ -30,7 +22,7 @@ class App extends Component {
   	}
 
 	_onChange() {
-    	this.setState(getState());
+    	this.setState(Store.getState());
   	}
 
 	render() {

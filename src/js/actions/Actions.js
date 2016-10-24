@@ -3,6 +3,13 @@ const Constants = require("../constants/Constants");
 
 module.exports = {
 
+	// Function to return the whole state
+	getState() {
+		AppDispatcher.dispatch({
+			type: GET_STATE
+		});
+	},
+
 	// Functions for the question
   	updateQuestion(question) {
 	    AppDispatcher.dispatch({

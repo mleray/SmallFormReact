@@ -28,5 +28,3 @@ chrome-user-data
 .idea
 *.iml
 .vscode
-.eslintrc
-.jshintrc

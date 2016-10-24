@@ -4,7 +4,10 @@
   "description": "A small form built with ReactJS to ask questions and display answers.",
   "main": "app/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --verbose"
+  },
+  "jest": {
+    "scriptPreprocessor": "node_modules/babel-jest"
   },
   "repository": {
     "type": "git",
@@ -27,6 +30,7 @@
     "react-dom": "^15.3.2"
   },
   "devDependencies": {
+    "babel-jest": "^16.0.0",
     "babel-preset-es2015": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "babelify": "^7.3.0",
@@ -38,6 +42,7 @@
     "flux": "^3.1.0",
     "gulp": "^3.9.1",
     "gulp-less": "^3.1.0",
+    "jest-cli": "^16.0.2",
     "object-assign": "^4.1.0",
     "vinyl-source-stream": "^1.1.0"
   }

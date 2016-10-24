@@ -10,8 +10,8 @@ const assign = require("object-assign");
 */  
 let _state = {
 	question: "",
-	answers: [ "", "", ""],
-	results: [1, 2, 3]
+	answers: ["","",""],
+	results: [0,0,0]
 };
 
 const Store = assign({}, EventEmitter.prototype, {
@@ -28,6 +28,11 @@ const Store = assign({}, EventEmitter.prototype, {
 	    this.removeListener("change", callback);
 	},
 
+	// Returns the whole state
+	getState() {
+		return _state;
+	},
+
 	// Returns the current question
 	getQuestion() {
 	    return _state.question;
@@ -36,7 +41,7 @@ const Store = assign({}, EventEmitter.prototype, {
 	// Updates the question and resets the results
 	updateQuestion(question) {
 	    _state.question = question;
-	    _state.results = [0, 0, 0];
+	    _state.results = [0,0,0];
 	},
 
 	// Returns the current answers
@@ -47,7 +52,7 @@ const Store = assign({}, EventEmitter.prototype, {
 	// Updates one answer by id and text and resets the results
 	updateAnswer(id, text) {
 	    _state.answers[id] = text;
-	    _state.results = [0, 0, 0];
+	    _state.results = [0,0,0];
 	},
 
 	// Updates results when sending an answer
@@ -65,6 +70,10 @@ const Store = assign({}, EventEmitter.prototype, {
 AppDispatcher.register(action => {
 
     switch(action.type) {
+
+    	case Constants.GET_STATE:
+    		Store.getState();
+    		break;
 
         case Constants.GET_QUESTION:
             Store.getQuestion();

@@ -1,6 +1,9 @@
 const keyMirror = require("fbjs/lib/keyMirror");
 
 module.exports = keyMirror({
+	// General constants
+	GET_STATE: null,
+	
 	// Constants for the question
   	UPDATE_QUESTION: null,
   	GET_QUESTION: null,

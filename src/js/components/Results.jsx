@@ -35,7 +35,7 @@ class Results extends Component {
 
 		return (
 			<div className="panel">
-				<h3>{`Results: ${results}`}</h3>
+				<h3>Results</h3>
 				<div id="chart" className="chart">
 					<Chart width={chartWidth} height={chartHeight}>
 	        			<DataSeries data={results} width={chartWidth} height={chartHeight} color="lightblue" />
