@@ -8,6 +8,10 @@ describe("Store", () => {
 	let callback;
 
 	// Mock actions 
+	const actionReset = {
+		type: Constants.RESET
+	};
+
 	const actionUpdateQuestion = {
 		type: Constants.UPDATE_QUESTION,
 		question: "New question"
@@ -98,6 +102,20 @@ describe("Store", () => {
 			callback(actionSendAnswer);
 			const results = Store.getResults();
 			expect(results).toEqual([1,0,0]);
+		});
+	});
+
+	describe("reset", () => {
+		it("should reset the state to initial state", () => {
+			callback(actionUpdateQuestion); // change question before testing reset
+			callback(actionReset);
+			const initialState = {
+				question: "",
+				answers: ["","",""],
+				results: [0,0,0]
+			};
+			const state = Store.getState();
+			expect(state).toEqual(initialState);
 		});
 	});
 });

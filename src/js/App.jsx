@@ -3,13 +3,14 @@ import ReactDOM from "react-dom";
 import Questions from "./components/Questions";
 import Answers from "./components/Answers";
 import Results from "./components/Results";
+import Actions from "./actions/Actions";
 import Store from "./stores/Store";
 
 class App extends Component {
 
 	constructor() {
 		super();
-    	this.state = Store.getState();
+    	this.state = Actions.getState();
     	this._onChange = this._onChange.bind(this);
   	}
 
@@ -22,7 +23,7 @@ class App extends Component {
   	}
 
 	_onChange() {
-    	this.setState(Store.getState());
+    	this.setState(Actions.getState());
   	}
 
 	render() {
