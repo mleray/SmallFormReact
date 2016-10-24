@@ -1,10 +1,21 @@
 import React, { PropTypes, Component } from "react";
-import Bar from "./Bar";
+import Bar from "../ui/Bar";
 
-class DataSeries extends Component {
-  
+class Bars extends Component {
+    
+    // Remove previous axis when receiving new props
+    componentWillReceiveProps() {
+        d3.selectAll(".x_axis").remove();
+        d3.selectAll(".y_axis").remove();
+        d3.selectAll("text").remove();
+    }
+
     render() {
         const { data, height, width, color } = this.props;
+
+        // Select svg tag on the page and remove previous data
+        const svg = d3.select("svg");
+
         // Set up domain and range for x
         const x = d3.scaleLinear()
             .domain([0, d3.max(data)])
@@ -14,9 +25,6 @@ class DataSeries extends Component {
         const y = d3.scaleBand()
             .domain([1,2,3])
             .range([height, 0]);
-
-        // Select svg tag on the page
-        const svg = d3.select("svg");
 
         // Set up the axis
         const xAxis = d3.axisBottom(x)
@@ -69,15 +77,11 @@ class DataSeries extends Component {
     }
 };
 
-DataSeries.propTypes = {
+Bars.propTypes = {
     data: PropTypes.array,
     color: PropTypes.string,
     height: PropTypes.number,
     width: PropTypes.number
 };
 
-DataSeries.defaultProps = {
-    data: []
-};
-
-module.exports = DataSeries;
+module.exports = Bars;

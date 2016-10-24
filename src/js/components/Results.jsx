@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from "react";
 import Chart from "../ui/Chart";
-import DataSeries from "../ui/DataSeries";
+import Bars from "./Bars";
 
 class Results extends Component {
 
@@ -38,7 +38,7 @@ class Results extends Component {
 				<h3>Results</h3>
 				<div id="chart" className="chart">
 					<Chart width={chartWidth} height={chartHeight}>
-	        			<DataSeries data={results} width={chartWidth} height={chartHeight} color="lightblue" />
+	        			<Bars data={results} width={chartWidth} height={chartHeight} color="lightblue" />
 	      			</Chart>
 	      		</div>
 			</div>
