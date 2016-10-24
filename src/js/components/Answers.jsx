@@ -26,7 +26,7 @@ class Answers extends Component {
 		const { question, answers } = this.props;
 		return (
 			<div className="panel with-border">
-				<h4>{question ? question : "No question for now"}</h4>
+				<h4 className="multiline">{question ? question : "No question for now"}</h4>
 				<form className="form">
 					{answers.map((answer, i) => {
 						return (

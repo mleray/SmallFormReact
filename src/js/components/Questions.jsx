@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from "react";
 import { findDOMNode } from "react-dom";
 import TextInput from "../ui/TextInput";
-import Answer from "../ui/Answer";
+import Answer from "./Answer";
 import Actions from "../actions/Actions";
 
 class Questions extends Component {

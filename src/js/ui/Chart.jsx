@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react";
 
 const Chart = ({ children, width, height }) => (
-	<svg width={width} height={height}>
+	<svg width={width} height={height} className="chartContainer">
 		{children}
 	</svg>
 );

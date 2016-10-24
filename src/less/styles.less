@@ -4,57 +4,66 @@
 
 .root {	
 	text-align: center;	
-}
 
-.panels {
-	.flex-display;
-	text-align: left;
+	.multiline {
+		word-wrap: break-word;
+	}
 
-	.panel {
-		.flex(1);
+	.panels {
+		.flex-display;
+		text-align: left;
+
+		.panel {
+			.flex(1);
+			.flex-display;
+			.flex-direction(column);
+			padding: 0 20px;
+		}
+
+		.with-border {
+			border-left: @middle-panel-borders;
+			border-right: @middle-panel-borders;
+		}
+	}
+
+	.question {
+		margin: 20px 0;
+	}
+
+	.answer {
+		.flex-display;
+		.flex-align-items(center);
+		.flex-justify-content(space-between);
+		width: 90%;
+		margin-bottom: 10px;
+	}
+
+	.form {
 		.flex-display;
 		.flex-direction(column);
-		padding: 0 20px;
 	}
 
-	.with-border {
-		border-left: @middle-panel-borders;
-		border-right: @middle-panel-borders;
+	.button {
+		.flex-align-self(center);
+		margin-top: 10px;
+		width: 50%;
+		padding: 5px 0;
 	}
-}
 
-.question {
-	margin: 20px 0;
-}
+	.chart {
+		height: 100%;
+	}
 
-.answer {
-	.flex-display;
-	.flex-align-items(center);
-	.flex-justify-content(space-between);
-	width: 90%;
-	margin-bottom: 10px;
-}
-
-.form {
-	.flex-display;
-	.flex-direction(column);
-}
-
-.button {
-	.flex-align-self(center);
-	margin-top: 10px;
-	width: 50%;
-	padding: 5px 0;
-}
-
-.chart {
-	height: 100%;
+	.chartContainer {
+		padding: 20px;
+	}
 }
 
 // UI
 .textInput {
 	width: 90%;
 	padding: 5px;
+	word-wrap: break-word;
 }
 
 .radio {

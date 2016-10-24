@@ -15,7 +15,7 @@ const Radio = ({
                 type="radio"
                 disabled={disabled}
             />
-            <span>{label}</span>
+            <span className="multiline">{label}</span>
         </div>
     );
 };

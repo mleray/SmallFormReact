@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from "react";
-import TextInput from "./TextInput";
+import TextInput from "../ui/TextInput";
 import Actions from "../actions/Actions";
 
 class Answer extends Component { 

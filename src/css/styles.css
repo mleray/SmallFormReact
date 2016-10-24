@@ -1,14 +1,17 @@
 .root {
   text-align: center;
 }
-.panels {
+.root .multiline {
+  word-wrap: break-word;
+}
+.root .panels {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: -ms-flex;
   display: flex;
   text-align: left;
 }
-.panels .panel {
+.root .panels .panel {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -21,14 +24,14 @@
   flex-direction: column;
   padding: 0 20px;
 }
-.panels .with-border {
+.root .panels .with-border {
   border-left: solid grey thin;
   border-right: solid grey thin;
 }
-.question {
+.root .question {
   margin: 20px 0;
 }
-.answer {
+.root .answer {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: -ms-flex;
@@ -42,7 +45,7 @@
   width: 90%;
   margin-bottom: 10px;
 }
-.form {
+.root .form {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: -ms-flex;
@@ -51,7 +54,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
 }
-.button {
+.root .button {
   -webkit-align-self: center;
   -ms-align-self: center;
   align-self: center;
@@ -59,12 +62,16 @@
   width: 50%;
   padding: 5px 0;
 }
-.chart {
+.root .chart {
   height: 100%;
+}
+.root .chartContainer {
+  padding: 20px;
 }
 .textInput {
   width: 90%;
   padding: 5px;
+  word-wrap: break-word;
 }
 .radio {
   padding: 5px;
