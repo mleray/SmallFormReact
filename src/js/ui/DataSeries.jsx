@@ -18,8 +18,6 @@ class DataSeries extends Component {
         // Generate bars for the chart
         // d is the number of times the answer has been sent, i is the index
         const bars = data.map((d, i) => {
-            console.debug("x(d)", x(d));
-            console.debug("y(i+1)", y(i+1));
             return (
                 <Bar 
                     width={x(d)}

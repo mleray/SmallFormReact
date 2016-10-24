@@ -51,7 +51,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
 }
-.form .sendButton {
+.button {
   -webkit-align-self: center;
   -ms-align-self: center;
   align-self: center;

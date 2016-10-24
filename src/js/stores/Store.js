@@ -33,12 +33,21 @@ const Store = assign({}, EventEmitter.prototype, {
 		return _state;
 	},
 
+	// Resets the state to initial state
+	reset() {
+		_state = {
+			question: "",
+			answers: ["","",""],
+			results: [0,0,0]
+		}; 	
+	},
+
 	// Returns the current question
 	getQuestion() {
 	    return _state.question;
 	},
 
-	// Updates the question and resets the results
+	// Updates the question (and resets the results)
 	updateQuestion(question) {
 	    _state.question = question;
 	    _state.results = [0,0,0];
@@ -49,7 +58,7 @@ const Store = assign({}, EventEmitter.prototype, {
 	    return _state.answers;
 	},
 
-	// Updates one answer by id and text and resets the results
+	// Updates one answer by id and text (and resets the results)
 	updateAnswer(id, text) {
 	    _state.answers[id] = text;
 	    _state.results = [0,0,0];
@@ -73,6 +82,10 @@ AppDispatcher.register(action => {
 
     	case Constants.GET_STATE:
     		Store.getState();
+    		break;
+
+    	case Constants.RESET:
+    		Store.reset();
     		break;
 
         case Constants.GET_QUESTION:

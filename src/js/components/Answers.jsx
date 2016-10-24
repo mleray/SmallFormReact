@@ -41,7 +41,7 @@ class Answers extends Component {
 					})}
 					<button 
 						type="submit" 
-						className="sendButton" 
+						className="button" 
 						onClick={this.onSendAnswer.bind(this)}
 					>
 						Send

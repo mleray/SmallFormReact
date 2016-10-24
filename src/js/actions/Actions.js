@@ -3,10 +3,16 @@ const Constants = require("../constants/Constants");
 
 module.exports = {
 
-	// Function to return the whole state
+	// General functions
 	getState() {
 		AppDispatcher.dispatch({
-			type: GET_STATE
+			type: Constants.GET_STATE
+		});
+	},
+
+	reset() {
+		AppDispatcher.dispatch({
+			type: Constants.RESET
 		});
 	},
 

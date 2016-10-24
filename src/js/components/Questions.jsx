@@ -1,19 +1,26 @@
 import React, { Component, PropTypes } from "react";
 import { findDOMNode } from "react-dom";
 import TextInput from "../ui/TextInput";
-import Answer from "./Answer";
+import Answer from "../ui/Answer";
 import Actions from "../actions/Actions";
 
 class Questions extends Component {
 
-	onChangeQuestion(event) {
-		Actions.updateQuestion(event.target.value);
+	onChangeQuestion(e) {
+		Actions.updateQuestion(e.target.value);
 		this.props.onChange();
+	}
+
+	onReset(e) {
+		Actions.reset();
+		this.props.onChange();
+		e.preventDefault();
 	}
 
 	render() {
 
 		const { question, answers, onChange } = this.props;
+
 		return (
 			<div className="panel">
 				<TextInput 
@@ -28,13 +35,19 @@ class Questions extends Component {
 						return (
 							<Answer 
 								key={i}
-								value={answers[i].text}
+								value={answers[i]}
 								id={i}
 								onChange={onChange}
 							/>
 						);
 					})
 				}
+				<button 
+					onClick={this.onReset.bind(this)} 
+					className="button"
+				>
+					Reset
+				</button>
 			</div>
 		);
 	}
