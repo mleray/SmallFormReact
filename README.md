@@ -21,6 +21,5 @@ And finally, to build the application, type:
 ```
 gulp
 ```
-The application will start on your local machine, at http://localhost:3333/
-The application will start on your local machine, at http://localhost:3333/
+The application will start on your local machine, at http://localhost:3333/.
 
