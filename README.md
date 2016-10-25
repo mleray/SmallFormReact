@@ -1,6 +1,7 @@
 # SmallFormReact
 
 Small form built with ReactJS and Flux, to ask questions and display answers.
+You can find it deployed here: http://smallformreact.com.s3-website-us-west-2.amazonaws.com/.
 
 In order to use the application:
 
